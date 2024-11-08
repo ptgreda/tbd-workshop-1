@@ -254,6 +254,14 @@ usage:
       }
       ```
 
+      Strona przed:
+
+      ![img.png](doc/figures/vertex-before.png)
+
+      Strona po:
+
+      ![img.png](doc/figures/vertex-after.png)
+
     4. **(Optional) Get access to Apache Spark WebUI**
 
     W tym celu trzeba ustawić dostęp po http
