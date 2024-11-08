@@ -13,12 +13,24 @@ usage:
     storage_gb: 100
     monthly_class_a_operations: 1000
     monthly_class_b_operations: 200
-    monthly_egress_data_gb: 500
+    monthly_egress_data_gb: 100
 
   google_storage_bucket.tbd_data_bucket:
     storage_gb: 200
     monthly_class_a_operations: 2500
     monthly_class_b_operations: 500
+    monthly_egress_data_gb: 100
+
+  google_storage_bucket.notebook-conf-bucket:
+    storage_gb: 100
+    monthly_class_a_operations: 1000
+    monthly_class_b_operations: 200
+    monthly_egress_data_gb: 100
+
+  google_storage_bucket.mlflow_artifacts_bucket:
+    storage_gb: 100
+    monthly_class_a_operations: 1000
+    monthly_class_b_operations: 200
     monthly_egress_data_gb: 100
 
   google_service_networking_connection.private_vpc_connection:
