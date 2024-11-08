@@ -6,9 +6,9 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 
    Grupa nr 6:
 
-   Piotr Gręda 310704
-   Szymon Skarzyński 310893
-   Jakub Smela 310900
+   - Piotr Gręda 310704
+   - Szymon Skarzyński 310893
+   - Jakub Smela 310900
 
    [https://github.com/ptgreda/tbd-workshop-1](https://github.com/ptgreda/tbd-workshop-1)
    
@@ -18,9 +18,13 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 
   ![img.png](doc/figures/discounts.png)
 
+  ![img.png](doc/figures/billing-budget.png)
+
 5. From avaialble Github Actions select and run destroy on main branch.
+
+  ![img.png](doc/figures/destroy-main.png)
    
-7. Create new git branch and:
+6. Create new git branch and:
     1. Modify tasks-phase1.md file.
     
     2. Create PR from this branch to **YOUR** master and merge it to make new release. 
