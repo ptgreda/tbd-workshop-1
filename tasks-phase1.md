@@ -28,19 +28,27 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
     1. Modify tasks-phase1.md file.
     
     2. Create PR from this branch to **YOUR** master and merge it to make new release. 
-    
-    ***place the screenshot from GA after succesfull application of release***
+
+    ![img.png](doc/figures/build-release.png)
 
 
-8. Analyze terraform code. Play with terraform plan, terraform graph to investigate different modules.
+7. Analyze terraform code. Play with terraform plan, terraform graph to investigate different modules.
 
-    ***describe one selected module and put the output of terraform graph for this module here***
+    ![img.png](doc/figures/vertex-ai-workbench-module.png)
    
-9. Reach YARN UI
+8. Reach YARN UI
+    Aby utworzyć tunel, który pozwoli na połączenie z YARN UI należy wywołać komendę, w której wyspecyfikujemy projekt, z jakiego korzystamy, strefę, port:
+
+    ```
+    gcloud compute ssh tbd-cluster-m --project=tbd-2024z-310893 --zone=europe-west1-d -- -D 1080 -N
+    ```
+    Niestety w naszym przypadku pojawił się problem z IAPem, więc przekierowaliśmy porty:
+    ```
+    gcloud compute ssh tbd-cluster-m --project=tbd-2024z-310893 --zone=europe-west1-d --tunnel-through-iap -- -L 8088:localhost:8088
+    ```
+    ![img.png](doc/figures/YARN-UI.png)
    
-   ***place the command you used for setting up the tunnel, the port and the screenshot of YARN UI here***
-   
-10. Draw an architecture diagram (e.g. in draw.io) that includes:
+9.  Draw an architecture diagram (e.g. in draw.io) that includes:
     1. VPC topology with service assignment to subnets
     2. Description of the components of service accounts
     3. List of buckets for disposal
@@ -48,7 +56,7 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
   
     ***place your diagram here***
 
-11. Create a new PR and add costs by entering the expected consumption into Infracost
+10. Create a new PR and add costs by entering the expected consumption into Infracost
 For all the resources of type: `google_artifact_registry`, `google_storage_bucket`, `google_service_networking_connection`
 create a sample usage profiles and add it to the Infracost task in CI/CD pipeline. Usage file [example](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) 
 
@@ -56,7 +64,7 @@ create a sample usage profiles and add it to the Infracost task in CI/CD pipelin
 
    ***place the screenshot from infracost output here***
 
-11. Create a BigQuery dataset and an external table using SQL
+1.  Create a BigQuery dataset and an external table using SQL
     
     ***place the code and output here***
    
