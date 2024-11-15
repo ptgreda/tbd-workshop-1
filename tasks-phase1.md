@@ -72,55 +72,44 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
     For all the resources of type: `google_artifact_registry`, `google_storage_bucket`, `google_service_networking_connection`
     create a sample usage profiles and add it to the Infracost task in CI/CD pipeline. Usage file [example](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml)
 
-```version: 0.1
-usage:
-  google_artifact_registry.registry:
-    storage_gb: 100
+  ```yml
+  version: 0.1
+  resource_usage:
+    google_artifact_registry_repository:
+      storage_gb: 100
+      monthly_egress_data_transfer_gb:
+        europe_west1: 50
+    google_storage_bucket:
+      storage_gb: 200
+      monthly_class_a_operations: 50000
+      monthly_class_b_operations: 250000
+      monthly_data_retrieval_gb: 100
+      monthly_egress_data_transfer_gb:
+        same_continent: 100
+        worldwide: 0
+        asia: 0
+        china: 0
+        australia: 0
+    google_service_networking_connection:
+      monthly_egress_data_transfer_gb:
+        same_region: 50
+        europe: 50
+        us_or_canada: 0
+        asia: 0
+        south_america: 0
+        oceania: 0
+        worldwide: 50
+  ```
 
-  google_storage_bucket.tbd-state-bucket:
-    storage_gb: 150
-    monthly_class_a_operations: 400
-    monthly_class_b_operations: 200
-    monthly_egress_data_gb: 50
-
-  google_storage_bucket.tbd_code_bucket:
-    storage_gb: 100
-    monthly_class_a_operations: 1000
-    monthly_class_b_operations: 200
-    monthly_egress_data_gb: 100
-
-  google_storage_bucket.tbd_data_bucket:
-    storage_gb: 200
-    monthly_class_a_operations: 2500
-    monthly_class_b_operations: 500
-    monthly_egress_data_gb: 100
-
-  google_storage_bucket.notebook-conf-bucket:
-    storage_gb: 100
-    monthly_class_a_operations: 1000
-    monthly_class_b_operations: 200
-    monthly_egress_data_gb: 100
-
-  google_storage_bucket.mlflow_artifacts_bucket:
-    storage_gb: 100
-    monthly_class_a_operations: 1000
-    monthly_class_b_operations: 200
-    monthly_egress_data_gb: 100
-
-  google_service_networking_connection.private_vpc_connection:
-    monthly_data_processed_gb: 200
-```
-
-![img.png](doc/figures/infracost-different-github.png)
-![img.png](doc/figures/infracost-different-infracost.png)
+![img.png](doc/figures/infracost-proper.png)
 
 11. Create a BigQuery dataset and an external table using SQL
 
-Po kilku godzinach prób udało się rozwiązać problem.  
- Wynikał on z tego, że dataset nie był pobrany - nie istniał w żadnym z kubełków.  
- Żeby to naprawić, należało poprawić skrypt spark-job ustawiając prawidłową wartość ścieżki do kubełka.  
- Dodatkowo napotkaliśmy problem z lokalizacją query - należało zmienić ją w ustawieniach.
-Ten punkt wykonaliśmy po ukończeniu punktów 12 i 13.
+  Po kilku godzinach prób udało się rozwiązać problem.  
+  Wynikał on z tego, że dataset nie był pobrany - nie istniał w żadnym z kubełków.  
+  Żeby to naprawić, należało poprawić skrypt spark-job ustawiając prawidłową wartość ścieżki do kubełka.  
+  Dodatkowo napotkaliśmy problem z lokalizacją query - należało zmienić ją w ustawieniach.
+  Ten punkt wykonaliśmy po ukończeniu punktów 12 i 13.
 
 ![img.png](doc/figures/big-query-select.png)
 
