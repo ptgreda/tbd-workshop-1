@@ -62,11 +62,41 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 9. Draw an architecture diagram (e.g. in draw.io) that includes:
 
    1. VPC topology with service assignment to subnets
+      * ![vpc](doc/figures/vpc.png)
+
    2. Description of the components of service accounts
+
+      * tbd-composer-sa: Konto to jest dedykowane do obsługi i zarządzania środowiskami Cloud Composerr, klastrami Dataproc oraz powiązanymi zadaniami
+
+      * tbd-terraform: Konto dedykowane do zarządzania infrastrukturą w Google Cloud przy użyciu Terraform.
+
+      * iac: Konto odpowiedzialne za wdrażanie i utrzymanie konfiguracji Infrastructure as Code w projekcie. Obłsuguje integracje pomięzy GitHub i Google Cloud.
+
    3. List of buckets for disposal
+
+      * tbd-2024z-310893-state - ifnromacje o infrastrukturze i jej stanie
+  
+      * tbd-2024z-310893-data - dane generowane przez aplikacje
+  
+      * tbd-2024z-310893-conf - pliki związane z konfiguracją i skrypty
+  
+      * tbd-2024z-310893-code - kod wykonywalny, kod źródłowy, biblioteki Apache Spark
+
    4. Description of network communication (ports, why it is necessary to specify the host for the driver) of Apache Spark running from Vertex AI Workbech
 
-   **_place your diagram here_**
+      * 0.10.10.2: tbd-cluster-w-1 - Worker
+
+      * 10.10.10.3: tbd-cluster-w-0 - Worker
+
+      * 10.10.10.4: tbd-cluster-m - Master
+
+      * 10.10.10.5: tbd-2024z-310893-notebook - Driver - Maszyna wirtualna Jupyter Notebook
+
+      Driver Apache Spark w środowisku Vertex AI Workbench może działać na innym serwerze lub w odrębnym kontenerze niż reszta komponentów klastra Spark. Aby zapewnić prawidłową komunikację, należy wskazać konkretny adres hosta dla drivera. Dzięki temu driver Spark ma informacje, do którego klastra kierować zadania oraz skąd odbierać wyniki przetwarzania. Ustalenie adresu hosta umożliwia stabilne połączenia między driverem a workerami w klastrze, co jest kluczowe dla efektywnego wykonywania operacji obliczeniowych.
+
+      Port drivera: 30000 — zarządzaniek komunikacją między driverem a komponentami klastra
+
+      Block manager: 30001 — przesyłanie bloków danych między instancjami w klastrze, zapewnianie płynnego przekazywania wyników
 
 10. Create a new PR and add costs by entering the expected consumption into Infracost
     For all the resources of type: `google_artifact_registry`, `google_storage_bucket`, `google_service_networking_connection`
