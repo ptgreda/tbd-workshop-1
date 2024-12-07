@@ -18,9 +18,11 @@ Worth to read:
 
 2. Authors:
 
-   ***Enter your group nr***
+   Grupa nr 6:
 
-   ***Link to forked repo***
+   - Piotr Gręda 310704
+   - Szymon Skarzyński 310893
+   - Jakub Smela 310900
 
 3. Sync your repo with https://github.com/bdg-tbd/tbd-workshop-1.
 
