@@ -29,5 +29,4 @@ in profiles.yml.
 
 5. Analyze the performance and scalability of execution times of each model. Visualize and discucss the final results.
 
-
    
