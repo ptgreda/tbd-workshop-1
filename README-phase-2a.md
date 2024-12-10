@@ -79,19 +79,40 @@ the running instance of your Vertex AI Workbench
 
 7. Explore files created by generator and describe them, including format, content, total size.
 
-   ***Files desccription***
+   Zbiór danych dotyczy transkakcji finansowych.
+
+   ![img.png](doc/figures/2a/tpc-di_data.png)
+
+   Składa się z 3 batchów:
+   * Batch1 - 437 plików
+   * Batch2 - 17 plików
+   * Batch3 - 17 plików
+
+   Występują 4 typy plików:
+   * .txt
+   * .csv
+   * .xml
+   * pliki bez roszerzenia (FINWIRE...)
+
+   <!-- ***Files desccription*** -->
 
 8. Analyze tpcdi.py. What happened in the loading stage?
 
-   ***Your answer***
+   Pliki z danymi są przetwarzane w różny sposób zależnie od ich nazwy. Np. tworzone są różne typy struktur i zapełniane danymi z plików CSV i TXT. Pliki FINWIRE są łączone i zapisywane są jako dataframe. Przygotowane dane przesyłana do bucket'a.
+
+   <!-- ***Your answer*** -->
 
 9. Using SparkSQL answer: how many table were created in each layer?
 
-   ***SparkSQL command and output***
+   ![img.png](doc/figures/2a/layers.png)
+
+   <!-- ***SparkSQL command and output*** -->
 
 10. Add some 3 more [dbt tests](https://docs.getdbt.com/docs/build/tests) and explain what you are testing. ***Add new tests to your repository.***
 
-   ***Code and description of your tests***
+   ![img.png](doc/figures/2a/db_tests.png)
+
+   <!-- ***Code and description of your tests*** -->
 
 11. In main.tf update
    ```
