@@ -59,11 +59,11 @@ Worth to read:
 
     b) in the cell:
     `%%bash
-      mkdir -p git && cd git
-      git clone https://github.com/mwiewior/tbd-tpc-di.git
-      cd tbd-tpc-di
-      git pull
-      `
+  mkdir -p git && cd git
+  git clone https://github.com/mwiewior/tbd-tpc-di.git
+  cd tbd-tpc-di
+  git pull
+  `
     replace repo with your fork. Next checkout to 'notebook' branch.
 
     c) after running first cells your fork of `tbd-tpc-di` repository will be cloned into Vertex AI enviroment (see git folder).
@@ -121,9 +121,9 @@ Worth to read:
 
 Pierwszy test sprawdza, czy pole "watch_cnt" w tabeli "fact_watches" jest nieujemne, ponieważ uznaliśmy, że licznik nie może mieć wartości ujemnej.
 
-Drugi test test sprawdza, czy pole "phone" w tabeli "dim_broker" zawiera same cyfry.
+Drugi test sprawdza, czy pole "phone" w tabeli "dim_broker" nie zawiera liter.
 
-Trzeci test weryfikuje, czy pole "sk_create_date" zawiera mnijeszą lub równą wartość "sk_close_date" w tabeli "fact_trade"
+Trzeci test weryfikuje, czy pole "sk_create_date" zawiera mniejszą lub równą wartość od "sk_close_date" w tabeli "fact_trade".
 
 11. In main.tf update
 
