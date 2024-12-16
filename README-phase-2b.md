@@ -29,3 +29,20 @@ in profiles.yml.
 
 5. Analyze the performance and scalability of execution times of each model. Visualize and discucss the final results.
 
+# Rozwiązanie:
+
+Łączne czasy wykonania dla różnych wartości parametru `spark.executor.instances`:
+
+* 1 - 168 minut
+* 2 - 68 minut
+* 4 - 121 minut
+
+Wykres przedstawiający czasy wykonania poszczególnych testów dla różnych wartości parametru:
+
+![img.png](doc/figures/2b/dbt_runs.png)
+
+Ten sam wykres po zastosowaniu skali logarytmicznej:
+
+![img.png](doc/figures/2b/dbt_runs_log.png)
+
+Jak widać najszybszy wykonanie uzyskane zostało dla wartości `2`. Zmiana wartości na `4` prawie dwukrotnie zwiększyło łączny czas wykonania (z 68 minuat na 121 minut), natomiast zmniejszenie do wartości `1` wydłużyło wykonanie o kolejne 47 minut.
